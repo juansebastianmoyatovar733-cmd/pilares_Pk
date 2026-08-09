@@ -3,7 +3,7 @@ public class Vehiculo {
     private String marca;
     private String modelo;
     private int velocidad;
-    private double kilometrajeTotal; // RETO: nuevo atributo privado
+    private double kilometrajeTotal; // RETO: kilómetros recorridos
 
     private static final int VEL_MAX = 200;
     private static final int VEL_MIN = 0;
@@ -16,15 +16,17 @@ public class Vehiculo {
         this.kilometrajeTotal = 0.0;
     }
 
+    // Getters
     public String getPlaca() { return placa; }
     public String getMarca() { return marca; }
     public String getModelo() { return modelo; }
     public int getVelocidad() { return velocidad; }
+    public double getKilometrajeTotal() { return kilometrajeTotal; }
 
     public void acelerar() {
         if (velocidad + 10 <= VEL_MAX) {
             velocidad += 10;
-            kilometrajeTotal += velocidad / 100.0; // RETO: acumula kilometraje
+            kilometrajeTotal += velocidad / 100.0; // acumula kilometraje
             System.out.println("Velocidad: " + velocidad + " km/h");
         } else {
             System.out.println("No puede superar " + VEL_MAX + " km/h.");
@@ -41,12 +43,7 @@ public class Vehiculo {
         }
     }
 
-    // ===== RETO DE ANDAMIAJE =====
-    public double getKilometrajeTotal() {
-        return kilometrajeTotal;
-    }
-
-    // Pone la velocidad en 0 (por ejemplo, al finalizar un recorrido).
+    // RETO: reinicia la velocidad a 0
     public void reset() {
         velocidad = 0;
         System.out.println("Velocidad reiniciada a 0 km/h.");
