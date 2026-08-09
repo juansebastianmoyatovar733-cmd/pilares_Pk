@@ -3,7 +3,7 @@ public class Aprendiz {
     private String nombre;
     private int edad;
     private double notaFinal;
-    private String correoInstitucional; // RETO: nuevo atributo privado
+    private String correoInstitucional;
 
     public Aprendiz(String documento, String nombre) {
         this.documento = documento;
@@ -13,10 +13,21 @@ public class Aprendiz {
         this.correoInstitucional = "";
     }
 
-    public String getDocumento() { return documento; }
-    public String getNombre() { return nombre; }
-    public int getEdad() { return edad; }
-    public double getNotaFinal() { return notaFinal; }
+    public String getDocumento() {
+        return documento;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public double getNotaFinal() {
+        return notaFinal;
+    }
 
     public void setEdad(int edad) {
         if (edad >= 0 && edad <= 100) {
@@ -38,7 +49,6 @@ public class Aprendiz {
         return notaFinal >= 3.5;
     }
 
-    // ===== RETO DE ANDAMIAJE =====
     public String getCorreoInstitucional() {
         return correoInstitucional;
     }
@@ -49,6 +59,28 @@ public class Aprendiz {
             System.out.println("Correo asignado correctamente.");
         } else {
             System.out.println("Correo invalido: debe contener '@'.");
+        }
+    }
+
+    // MÉTODO PRINCIPAL
+    public static void main(String[] args) {
+
+        Aprendiz aprendiz = new Aprendiz("123456789", "Juan");
+
+        aprendiz.setEdad(21);
+        aprendiz.setNotaFinal(4.2);
+        aprendiz.setCorreoInstitucional("juan@institucion.edu.co");
+
+        System.out.println("Documento: " + aprendiz.getDocumento());
+        System.out.println("Nombre: " + aprendiz.getNombre());
+        System.out.println("Edad: " + aprendiz.getEdad());
+        System.out.println("Nota final: " + aprendiz.getNotaFinal());
+        System.out.println("Correo: " + aprendiz.getCorreoInstitucional());
+
+        if (aprendiz.aprobo()) {
+            System.out.println("Estado: APROBO");
+        } else {
+            System.out.println("Estado: NO APROBO");
         }
     }
 }
